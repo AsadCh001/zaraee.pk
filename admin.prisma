@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./prisma/admin"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_ADMIN")
+}
+
+model customers {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  email     String   @unique(map: "email_1")
+  name      String
+  password  String
+  phoneNo   BigInt   @unique(map: "phoneNo_1")
+  updatedAt DateTime @updatedAt
+}
+
+model products {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  price   Float
+  ftimage String
+  images  String[]
+  rating  Float
+  cart    cart[]
+}
+
+model cart {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  productId   String   @db.ObjectId
+  product     products @relation(fields: [productId], references: [id])
+  total_price Float
+  quantity    Int
+  useremail   String
+}
+
+model sellers {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  email     String   @unique(map: "email_1")
+  name      String
+  password  String
+  phoneNo   BigInt   @unique(map: "phoneNo_1")
+  updatedAt DateTime @updatedAt
+}

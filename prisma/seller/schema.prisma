@@ -1,0 +1,18 @@
+generator client {
+    provider = "prisma-client-js"
+    output   = "./prisma/seller"
+}
+
+datasource db {
+    provider = "mongodb"
+    url      = env("DATABASE_SELLERS")
+}
+
+model sellerotps {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    createdAt DateTime @default(now())
+    email     String   @unique
+    expiresAt DateTime @db.Date
+    otp       String   @unique(map: "otp_1")
+    updatedAt DateTime @updatedAt
+}

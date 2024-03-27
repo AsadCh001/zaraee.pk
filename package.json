@@ -1,0 +1,42 @@
+{
+  "name": "zaraee-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:generate:admin": "prisma generate --schema=./admin.prisma",
+    "db:generate:seller": "prisma generate --schema=./seller.prisma",
+    "db:generate:customer": "prisma generate --schema=./customer.prisma",
+    "db:push:admin": "prisma db push --schema=./admin.prisma",
+    "db:push:customer": "prisma db push --schema=./customer.prisma",
+    "db:push:seller": "prisma db push --schema=./seller.prisma"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@prisma/client": "^5.5.2",
+    "bcryptjs": "^2.4.3",
+    "crypto": "^1.0.1",
+    "mongoose": "^8.0.1",
+    "next": "13.5.5",
+    "next-auth": "^4.24.5",
+    "nodemailer": "^6.9.7",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-google-button": "^0.7.2",
+    "react-icons": "^4.12.0",
+    "react-responsive-carousel": "^3.2.23",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10",
+    "eslint": "^8",
+    "eslint-config-next": "13.5.5",
+    "postcss": "^8",
+    "prisma": "^5.5.2",
+    "tailwindcss": "^3"
+  }
+}
